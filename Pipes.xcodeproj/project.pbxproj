@@ -26,6 +26,7 @@
 		EDF091FD1E65FBB7006FC426 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EDF092001E65FBB7006FC426 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EDF092021E65FBB7006FC426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDF092081E65FD7F006FC426 /* ISP Proposal.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ISP Proposal.docx"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +59,7 @@
 		EDF091F21E65FBB7006FC426 /* Pipes */ = {
 			isa = PBXGroup;
 			children = (
+				EDF092081E65FD7F006FC426 /* ISP Proposal.docx */,
 				EDF091F31E65FBB7006FC426 /* AppDelegate.swift */,
 				EDF091F51E65FBB7006FC426 /* GameScene.sks */,
 				EDF091F71E65FBB7006FC426 /* Actions.sks */,
