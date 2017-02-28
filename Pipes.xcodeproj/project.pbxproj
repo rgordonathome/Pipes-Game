@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		EDF091F41E65FBB7006FC426 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF091F31E65FBB7006FC426 /* AppDelegate.swift */; };
-		EDF091F61E65FBB7006FC426 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = EDF091F51E65FBB7006FC426 /* GameScene.sks */; };
-		EDF091F81E65FBB7006FC426 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = EDF091F71E65FBB7006FC426 /* Actions.sks */; };
 		EDF091FA1E65FBB7006FC426 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF091F91E65FBB7006FC426 /* GameScene.swift */; };
 		EDF091FC1E65FBB7006FC426 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF091FB1E65FBB7006FC426 /* ViewController.swift */; };
 		EDF091FE1E65FBB7006FC426 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDF091FD1E65FBB7006FC426 /* Assets.xcassets */; };
@@ -19,8 +17,6 @@
 /* Begin PBXFileReference section */
 		EDF091F01E65FBB7006FC426 /* Pipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDF091F31E65FBB7006FC426 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EDF091F51E65FBB7006FC426 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		EDF091F71E65FBB7006FC426 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		EDF091F91E65FBB7006FC426 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		EDF091FB1E65FBB7006FC426 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EDF091FD1E65FBB7006FC426 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,8 +57,6 @@
 			children = (
 				EDF092081E65FD7F006FC426 /* ISP Proposal.docx */,
 				EDF091F31E65FBB7006FC426 /* AppDelegate.swift */,
-				EDF091F51E65FBB7006FC426 /* GameScene.sks */,
-				EDF091F71E65FBB7006FC426 /* Actions.sks */,
 				EDF091F91E65FBB7006FC426 /* GameScene.swift */,
 				EDF091FB1E65FBB7006FC426 /* ViewController.swift */,
 				EDF091FD1E65FBB7006FC426 /* Assets.xcassets */,
@@ -131,9 +125,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDF091F61E65FBB7006FC426 /* GameScene.sks in Resources */,
 				EDF091FE1E65FBB7006FC426 /* Assets.xcassets in Resources */,
-				EDF091F81E65FBB7006FC426 /* Actions.sks in Resources */,
 				EDF092011E65FBB7006FC426 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,6 +292,7 @@
 				EDF092071E65FBB7006FC426 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
