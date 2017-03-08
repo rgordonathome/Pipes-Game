@@ -39,8 +39,10 @@ class LevelSelect: SKScene {
                     let levelNumber = SKLabelNode(fontNamed: "Helvetica")
                     levelNumber.text = "\(n)"
                     levelNumber.position = CGPoint(x: i, y: j)
-                    levelNumber.fontSize = 30
+                    levelNumber.fontSize = 10
+                    levelNumber.fontColor = SKColor.black
                     levelNumber.zPosition = 51
+                    addChild(levelNumber)
                 }
             }
         }
