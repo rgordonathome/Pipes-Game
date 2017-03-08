@@ -47,10 +47,18 @@ class TitlePage: SKScene {
         print("X: \(event.locationInWindow.x)")
         print("Y: \(event.locationInWindow.y)")
         if event.locationInWindow.x >= 265 && event.locationInWindow.x <= 535 {
+            
+            //Level Select screen transition
             if (event.locationInWindow.y >= 380 && event.locationInWindow.y <= 420) {
                 let levelSelectScene = LevelSelect(size: size)
                 let reveal = SKTransition.doorsCloseVertical(withDuration: 0.5)
                 view?.presentScene(levelSelectScene, transition: reveal)
+            }
+            //Quick play screen transition
+            if (event.locationInWindow.y <=365 && event.locationInWindow.y >= 325) {
+                let quickPlayScene = QuickPlay(size: size)
+                let revealH = SKTransition.doorsCloseHorizontal(withDuration: 0.5)
+                view?.presentScene(quickPlayScene, transition: revealH)
             }
         }
     }
