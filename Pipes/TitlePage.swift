@@ -55,7 +55,7 @@ class TitlePage: SKScene {
                 view?.presentScene(levelSelectScene, transition: reveal)
             }
             //Quick play screen transition
-            if (event.locationInWindow.y <=365 && event.locationInWindow.y >= 325) {
+            if (event.locationInWindow.y <= 365 && event.locationInWindow.y >= 325) {
                 let quickPlayScene = QuickPlay(size: size)
                 let revealH = SKTransition.doorsCloseHorizontal(withDuration: 0.5)
                 view?.presentScene(quickPlayScene, transition: revealH)

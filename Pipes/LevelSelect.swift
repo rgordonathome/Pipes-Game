@@ -14,7 +14,7 @@ class LevelSelect: SKScene {
         backgroundColor = SKColor.black
         
         //Add background image
-        let background = SKSpriteNode(imageNamed: "Background1")
+        let background = SKSpriteNode(imageNamed: "Background2")
         background.position = CGPoint(x: size.width/2, y: size.height/2)
         background.size = self.frame.size
         addChild(background)
