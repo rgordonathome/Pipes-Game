@@ -17,6 +17,7 @@ class LevelSelect: SKScene {
         let background = SKSpriteNode(imageNamed: "Background2")
         background.position = CGPoint(x: size.width/2, y: size.height/2)
         background.size = self.frame.size
+        background.zPosition = 0
         addChild(background)
         
         //Add text for Pipes Title
@@ -25,6 +26,23 @@ class LevelSelect: SKScene {
         Levels.fontSize = 64
         Levels.fontColor = SKColor.black
         Levels.position = CGPoint(x: size.width/2, y: size.height*0.75)
+        Levels.zPosition = 50
         addChild(Levels)
+        
+        //Make grid for the levels.
+        for i in stride(from: size.width*0.25, through: size.width*0.75, by: 30) {
+            for j in stride(from: size.height*0.15, through: size.height*0.60, by: 30) {
+                let grid = SKShapeNode(rect: CGRect(x: i, y: j, width: 28, height: 28))
+                grid.zPosition = 50
+                addChild(grid)
+                for n in 1...140 {
+                    let levelNumber = SKLabelNode(fontNamed: "Helvetica")
+                    levelNumber.text = "\(n)"
+                    levelNumber.position = CGPoint(x: i, y: j)
+                    levelNumber.fontSize = 30
+                    levelNumber.zPosition = 51
+                }
+            }
+        }
     }
 }

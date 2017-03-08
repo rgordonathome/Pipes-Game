@@ -17,6 +17,7 @@ class TitlePage: SKScene {
         let background = SKSpriteNode(imageNamed: "Background1")
         background.position = CGPoint(x: size.width/2, y: size.height/2)
         background.size = self.frame.size
+        background.zPosition = 0
         addChild(background)
         
         //Add text for Pipes Title
@@ -25,6 +26,7 @@ class TitlePage: SKScene {
         pipesTitle.fontSize = 64
         pipesTitle.fontColor = SKColor.black
         pipesTitle.position = CGPoint(x: size.width/2, y: size.height*0.75)
+        pipesTitle.zPosition = 50
         addChild(pipesTitle)
         
         //Add level select text
@@ -33,6 +35,7 @@ class TitlePage: SKScene {
         levelSelect.fontSize = 40
         levelSelect.fontColor = SKColor.black
         levelSelect.position = CGPoint(x: size.width/2, y: size.height*0.65)
+        levelSelect.zPosition = 50
         addChild(levelSelect)
         
         //Add quick play text
@@ -41,6 +44,7 @@ class TitlePage: SKScene {
         quickPlay.fontSize = 40
         quickPlay.fontColor = SKColor.black
         quickPlay.position = CGPoint(x: size.width/2, y: size.height*0.55)
+        quickPlay.zPosition = 50 
         addChild(quickPlay)
     }
     override func mouseDown(with event: NSEvent) {
