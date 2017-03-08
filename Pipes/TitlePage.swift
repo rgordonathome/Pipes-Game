@@ -14,7 +14,7 @@ class TitlePage: SKScene {
         backgroundColor = SKColor.white
         
         //Add background image
-        let background = SKSpriteNode(imageNamed: "Background")
+        let background = SKSpriteNode(imageNamed: "Background1")
         background.position = CGPoint(x: size.width/2, y: size.height/2)
         background.size = self.frame.size
         addChild(background)
@@ -43,13 +43,15 @@ class TitlePage: SKScene {
         quickPlay.position = CGPoint(x: size.width/2, y: size.height*0.55)
         addChild(quickPlay)
     }
-//    override func mouseDown(with event: NSEvent) {
-//        if mouse.position.x > 300 {
-//            if mouse.position.y >= 590 {
-//                let levelSelectScene = TitlePage(size: size)
-//                let reveal = SKTransition.doorsOpenHorizontal(withDuration: 0.5)
-//                view?.presentScene(levelSelectScene, transition: reveal)
-//            }
-//        }
-//    }
+    override func mouseDown(with event: NSEvent) {
+        print("X: \(event.locationInWindow.x)")
+        print("Y: \(event.locationInWindow.y)")
+        if event.locationInWindow.x >= 265 && event.locationInWindow.x <= 535 {
+            if (event.locationInWindow.y >= 380 && event.locationInWindow.y <= 420) {
+                let levelSelectScene = LevelSelect(size: size)
+                let reveal = SKTransition.doorsCloseVertical(withDuration: 0.5)
+                view?.presentScene(levelSelectScene, transition: reveal)
+            }
+        }
+    }
 }
