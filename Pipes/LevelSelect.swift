@@ -12,13 +12,7 @@ import GameplayKit
 class LevelSelect: SKScene {
     override func didMove(to view: SKView) {
         backgroundColor = SKColor.black
-        var count = [String] ()
         var gridCount : Int = 0
-        
-        //Create level numbers
-        for i in 0...34 {
-            count[i] = String(i+1)
-        }
         
         //Add background image
         let background = SKSpriteNode(imageNamed: "Background2")
@@ -37,22 +31,22 @@ class LevelSelect: SKScene {
         addChild(Levels)
         
         //Make grid for the levels
-        for i in stride(from: size.width*0.25, through: size.width*0.75, by: 60) {
-            for j in stride(from: size.height*0.15, through: size.height*0.60, by: 60) {
+        for j in stride(from: size.height*0.60, through: size.height*0.15, by: -60) {
+            for i in stride(from: size.width*0.25, through: size.width*0.75, by: 60) {
                 
                 //Add level numbers
                 let levelNumber = SKLabelNode(fontNamed: "Helvetica")
-                levelNumber.text = count[gridCount]
-                levelNumber.fontSize = 10
+                levelNumber.text = String(gridCount)
+                levelNumber.fontSize = 15
                 levelNumber.fontColor = SKColor.black
                 levelNumber.zPosition = 51
-                levelNumber.position = CGPoint(x: i, y: j)
+                levelNumber.position = CGPoint(x: i+30, y: j+25)
                 addChild(levelNumber)
                 
                 //Add boxes for levels
                 let grid = SKShapeNode(rect: CGRect(x: i, y: j, width: 60, height: 60))
                 grid.zPosition = 50
-                grid.fillColor = SKColor.blue
+                grid.fillColor = SKColor.purple
                 addChild(grid)
                 
                 gridCount += 1
