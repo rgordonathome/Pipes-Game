@@ -12,6 +12,13 @@ import GameplayKit
 class LevelSelect: SKScene {
     override func didMove(to view: SKView) {
         backgroundColor = SKColor.black
+        var count = [String] ()
+        var gridCount : Int = 0
+        
+        //Create level numbers
+        for i in 0...34 {
+            count[i] = String(i+1)
+        }
         
         //Add background image
         let background = SKSpriteNode(imageNamed: "Background2")
@@ -29,21 +36,26 @@ class LevelSelect: SKScene {
         Levels.zPosition = 50
         addChild(Levels)
         
-        //Make grid for the levels.
-        for i in stride(from: size.width*0.25, through: size.width*0.75, by: 30) {
-            for j in stride(from: size.height*0.15, through: size.height*0.60, by: 30) {
-                let grid = SKShapeNode(rect: CGRect(x: i, y: j, width: 28, height: 28))
+        //Make grid for the levels
+        for i in stride(from: size.width*0.25, through: size.width*0.75, by: 60) {
+            for j in stride(from: size.height*0.15, through: size.height*0.60, by: 60) {
+                
+                //Add level numbers
+                let levelNumber = SKLabelNode(fontNamed: "Helvetica")
+                levelNumber.text = count[gridCount]
+                levelNumber.fontSize = 10
+                levelNumber.fontColor = SKColor.black
+                levelNumber.zPosition = 51
+                levelNumber.position = CGPoint(x: i, y: j)
+                addChild(levelNumber)
+                
+                //Add boxes for levels
+                let grid = SKShapeNode(rect: CGRect(x: i, y: j, width: 60, height: 60))
                 grid.zPosition = 50
+                grid.fillColor = SKColor.blue
                 addChild(grid)
-                for n in 1...140 {
-                    let levelNumber = SKLabelNode(fontNamed: "Helvetica")
-                    levelNumber.text = "\(n)"
-                    levelNumber.position = CGPoint(x: i, y: j)
-                    levelNumber.fontSize = 10
-                    levelNumber.fontColor = SKColor.black
-                    levelNumber.zPosition = 51
-                    addChild(levelNumber)
-                }
+                
+                gridCount += 1
             }
         }
     }
