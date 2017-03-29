@@ -47,10 +47,33 @@ class LevelSelect: SKScene {
                 let grid = SKShapeNode(rect: CGRect(x: i, y: j, width: 60, height: 60))
                 grid.zPosition = 50
                 grid.fillColor = SKColor.purple
+                grid.name = "box-\(gridCount)"
                 addChild(grid)
                 
                 gridCount += 1
             }
+        }
+    }
+    override func mouseDown(with event: NSEvent) {
+        
+        // Iterate over all child nodes in the scene
+        for node in self.children {
+            
+            // Only check for nodes that have a name of "box" (for level selection)
+            if let nodeName = node.name {
+                if nodeName.contains("box") {
+                    
+                    // Then see if the click is within this box
+                    if node.contains(event.locationInWindow) {
+                        
+                        // We've clicked in the box, now get the box number
+                        let number = nodeName.components(separatedBy: "-")
+                        print("The box number is: " + number[1])
+                    }
+                    
+                }
+            }
+            
         }
     }
 }
