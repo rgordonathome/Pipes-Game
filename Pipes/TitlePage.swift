@@ -49,10 +49,6 @@ class TitlePage: SKScene {
     }
     override func mouseDown(with event: NSEvent) {
         
-        let clickLocation = event.locationInWindow
-        clickLocation.y
-        
-        
         if event.locationInWindow.x >= 265 && event.locationInWindow.x <= 535 {
             
             //Level Select screen transition

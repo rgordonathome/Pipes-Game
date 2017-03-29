@@ -12,7 +12,8 @@ import GameplayKit
 class LevelSelect: SKScene {
     override func didMove(to view: SKView) {
         backgroundColor = SKColor.black
-        var gridCount : Int = 0
+        var gridCount : Int = 1
+        var boxNumber = [Int] ()
         
         //Add background image
         let background = SKSpriteNode(imageNamed: "Background2")
@@ -50,6 +51,8 @@ class LevelSelect: SKScene {
                 grid.name = "box-\(gridCount)"
                 addChild(grid)
                 
+                boxNumber[gridCount] = gridCount
+                
                 gridCount += 1
             }
         }
@@ -68,7 +71,13 @@ class LevelSelect: SKScene {
                         
                         // We've clicked in the box, now get the box number
                         let number = nodeName.components(separatedBy: "-")
-                        print("The box number is: " + number[1])
+                        print("The level selected is: " + number[1])
+                        
+                        //Transition
+                        let reveal = SKTransition.doorsOpenVertical(withDuration: 0.5)
+                        
+                        //Level 1
+                        let boxNumber[number[1]] = level1(size: size)
                     }
                     
                 }
