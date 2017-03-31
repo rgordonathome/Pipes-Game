@@ -21,6 +21,15 @@ class level1: SKScene  {
         background.zPosition = 0
         addChild(background)
         
+        //Title
+        let titleText = SKLabelNode(fontNamed: "Helvetica")
+        titleText.text = "Level 1"
+        titleText.fontSize = 25
+        titleText.fontColor = SKColor.black
+        titleText.zPosition = 1
+        titleText.position = CGPoint(x: 400, y: 550)
+        addChild(titleText)
+        
         //Add grid
         for j in stride(from: 425, through: 125, by: -50) {
             for i in stride(from: 225, through: 525, by: 50) {
@@ -31,13 +40,9 @@ class level1: SKScene  {
                 addChild(boxGrid)
                 
                 boxCount += 1
-                
-                let box = SKShapeNode(rect: CGRect(x: self.frame.size.width/2 - 50, y: self.frame.size.height/2 - 50, width: 100, height: 100))
-                box.zPosition = 2
-                box.fillColor = SKColor.black
-                addChild(box)
             }
         }
+     //Add the different circles to connect the dots
         
     }
 }
