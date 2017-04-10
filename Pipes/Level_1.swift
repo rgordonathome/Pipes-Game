@@ -13,7 +13,8 @@ class level1: SKScene  {
     override func didMove(to view: SKView) {
         backgroundColor = SKColor.black
         var boxCount : Int = 0
-        
+        let circlePosiitonArray = [250, 450, 300, 400, 350, 400, 300, 200]
+        //250, 450, 300, 400, 350, 400, 300, 200
         //Background
         let background = SKSpriteNode(imageNamed: "Background3")
         background.position = CGPoint(x: size.width/2, y: size.height/2)
@@ -43,6 +44,13 @@ class level1: SKScene  {
             }
         }
      //Add the different circles to connect the dots
-        
+        //Red circle 1
+        let circle = SKShapeNode(circleOfRadius: 22)
+        circle.position = CGPoint(x: circlePosiitonArray[0], y: circlePosiitonArray[1])
+        circle.zPosition = 2
+        circle.strokeColor = SKColor.black
+        circle.fillColor = SKColor.red
+        addChild(circle)
     }
 }
+
