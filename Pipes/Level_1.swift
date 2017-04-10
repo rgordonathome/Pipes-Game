@@ -13,8 +13,8 @@ class level1: SKScene  {
     override func didMove(to view: SKView) {
         backgroundColor = SKColor.black
         var boxCount : Int = 0
-        let circlePosiitonArray = [250, 450, 300, 400, 350, 400, 300, 200]
-        //250, 450, 300, 400, 350, 400, 300, 200
+        let circlePosiitonArray = [250, 450, 300, 400, 350, 400, 300, 200, 300, 350, 450, 350, 300, 300, 400, 250, 350, 300, 450, 250]
+        
         //Background
         let background = SKSpriteNode(imageNamed: "Background3")
         background.position = CGPoint(x: size.width/2, y: size.height/2)
@@ -45,12 +45,84 @@ class level1: SKScene  {
         }
      //Add the different circles to connect the dots
         //Red circle 1
-        let circle = SKShapeNode(circleOfRadius: 22)
-        circle.position = CGPoint(x: circlePosiitonArray[0], y: circlePosiitonArray[1])
-        circle.zPosition = 2
-        circle.strokeColor = SKColor.black
-        circle.fillColor = SKColor.red
-        addChild(circle)
+        let circleR1 = SKShapeNode(circleOfRadius: 22)
+        circleR1.position = CGPoint(x: circlePosiitonArray[0], y: circlePosiitonArray[1])
+        circleR1.zPosition = 2
+        circleR1.strokeColor = SKColor.clear
+        circleR1.fillColor = SKColor.red
+        addChild(circleR1)
+        
+        //Red Circle 2
+        let circleR2 = SKShapeNode(circleOfRadius: 22)
+        circleR2.position = CGPoint(x: circlePosiitonArray[2], y: circlePosiitonArray[3])
+        circleR2.zPosition = 2
+        circleR2.strokeColor = SKColor.clear
+        circleR2.fillColor = SKColor.red
+        addChild(circleR2)
+        
+        //Blue Circle 1
+        let circleB1 = SKShapeNode(circleOfRadius: 22)
+        circleB1.position = CGPoint(x: circlePosiitonArray[4], y: circlePosiitonArray[5])
+        circleB1.zPosition = 2
+        circleB1.strokeColor = SKColor.clear
+        circleB1.fillColor = SKColor.blue
+        addChild(circleB1)
+        
+        //Blue Circle 2
+        let circleB2 = SKShapeNode(circleOfRadius: 22)
+        circleB2.position = CGPoint(x: circlePosiitonArray[6], y: circlePosiitonArray[7])
+        circleB2.zPosition = 2
+        circleB2.strokeColor = SKColor.clear
+        circleB2.fillColor = SKColor.blue
+        addChild(circleB2)
+
+        //Yellow Circle 1
+        let circleY1 = SKShapeNode(circleOfRadius: 22)
+        circleY1.position = CGPoint(x: circlePosiitonArray[8], y: circlePosiitonArray[9])
+        circleY1.zPosition = 2
+        circleY1.strokeColor = SKColor.clear
+        circleY1.fillColor = SKColor.yellow
+        addChild(circleY1)
+
+        //Yellow Circle 2
+        let circleY2 = SKShapeNode(circleOfRadius: 22)
+        circleY2.position = CGPoint(x: circlePosiitonArray[10], y: circlePosiitonArray[11])
+        circleY2.zPosition = 2
+        circleY2.strokeColor = SKColor.clear
+        circleY2.fillColor = SKColor.yellow
+        addChild(circleY2)
+        
+        //Purple Circle 1
+        let circleP1 = SKShapeNode(circleOfRadius: 22)
+        circleP1.position = CGPoint(x: circlePosiitonArray[12], y: circlePosiitonArray[13])
+        circleP1.zPosition = 2
+        circleP1.strokeColor = SKColor.clear
+        circleP1.fillColor = SKColor.purple
+        addChild(circleP1)
+        
+        //Purple Circle 2
+        let circleP2 = SKShapeNode(circleOfRadius: 22)
+        circleP2.position = CGPoint(x: circlePosiitonArray[14], y: circlePosiitonArray[15])
+        circleP2.zPosition = 2
+        circleP2.strokeColor = SKColor.clear
+        circleP2.fillColor = SKColor.purple
+        addChild(circleP2)
+        
+        //Green Circle 1
+        let circleG1 = SKShapeNode(circleOfRadius: 22)
+        circleG1.position = CGPoint(x: circlePosiitonArray[16], y: circlePosiitonArray[17])
+        circleG1.zPosition = 2
+        circleG1.strokeColor = SKColor.clear
+        circleG1.fillColor = SKColor.green
+        addChild(circleG1)
+        
+        //Green Circle 2
+        let circleG2 = SKShapeNode(circleOfRadius: 22)
+        circleG2.position = CGPoint(x: circlePosiitonArray[18], y: circlePosiitonArray[19])
+        circleG2.zPosition = 2
+        circleG2.strokeColor = SKColor.clear
+        circleG2.fillColor = SKColor.green
+        addChild(circleG2)
     }
 }
 
