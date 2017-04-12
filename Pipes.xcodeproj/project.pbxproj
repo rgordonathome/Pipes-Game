@@ -19,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		ED489B201E6DE99600E40EE2 /* LevelSelect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSelect.swift; sourceTree = "<group>"; };
+		ED65B2611E9E9F9D00FCE2B9 /* Checklpoint1.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Checklpoint1.docx; sourceTree = "<group>"; };
 		ED7B50781E7042870033E6B1 /* QuickPlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickPlay.swift; sourceTree = "<group>"; };
 		ED9C718B1E68562F00B8F44E /* Asset_Tracking_Form.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Asset_Tracking_Form.docx; sourceTree = SOURCE_ROOT; };
 		EDF091F01E65FBB7006FC426 /* Pipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +65,7 @@
 			children = (
 				EDF092081E65FD7F006FC426 /* ISP Proposal.docx */,
 				ED9C718B1E68562F00B8F44E /* Asset_Tracking_Form.docx */,
+				ED65B2611E9E9F9D00FCE2B9 /* Checklpoint1.docx */,
 				EDF091F31E65FBB7006FC426 /* AppDelegate.swift */,
 				EDF091F91E65FBB7006FC426 /* TitlePage.swift */,
 				ED489B201E6DE99600E40EE2 /* LevelSelect.swift */,
