@@ -17,6 +17,7 @@ class QuickPlay: SKScene {
         let background = SKSpriteNode(imageNamed: "Background2")
         background.position = CGPoint(x: size.width/2, y: size.height/2)
         background.size = self.frame.size
+        background.zPosition = 0
         addChild(background)
         
         //Add text for Pipes Title
@@ -24,6 +25,7 @@ class QuickPlay: SKScene {
         Levels.text = "QuickPlay"
         Levels.fontSize = 64
         Levels.fontColor = SKColor.black
+        Levels.zPosition = 1
         Levels.position = CGPoint(x: size.width/2, y: size.height*0.75)
         addChild(Levels)
         
@@ -32,6 +34,7 @@ class QuickPlay: SKScene {
         quick.text = "UNDER CONSTRUCTION"
         quick.fontSize = 64
         quick.fontColor = SKColor.black
+        quick.zPosition = 1
         quick.position = CGPoint(x: size.width/2, y: size.height*0.6586)
         addChild(quick)
     }
