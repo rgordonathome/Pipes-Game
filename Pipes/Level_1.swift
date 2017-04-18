@@ -20,7 +20,7 @@ class level1: SKScene  {
         background.position = CGPoint(x: size.width/2, y: size.height/2)
         background.size = self.frame.size
         background.zPosition = 0
-        //addChild(background)
+        addChild(background)
         
         //Title
         let titleText = SKLabelNode(fontNamed: "Helvetica")
@@ -140,6 +140,15 @@ class level1: SKScene  {
                 if nodeName.contains("circle") {
                     if node.contains(event.locationInWindow) {
                         let number = nodeName.components(separatedBy: "-")
+                        let location = event.locationInWindow // obtaion mouse click location
+                        let x = Int(location.x)-150
+                        let y = Int(location.y)-100
+                        
+                        let mappedX = x/50
+                        let mappedY = y/50
+                        
+                        print("The mapped values are: ", "\(mappedX)", "\(mappedY)")
+                        print("The real values are: ", "\(event.locationInWindow.x)", "\(event.locationInWindow.y)")
                     }
                 }
             }
