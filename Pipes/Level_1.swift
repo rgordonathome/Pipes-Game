@@ -141,14 +141,18 @@ class level1: SKScene  {
             if let nodeName = node.name {
                 if nodeName.contains("circle") {
                     if node.contains(event.locationInWindow) {
-                        let number = nodeName.components(separatedBy: "-")
+                        //let number = nodeName.components(separatedBy: "-")
+                        
                         let location = event.locationInWindow // obtaion mouse click location
                         
-                        let x = Int(location.x)-150
-                        let y = Int(location.y)-100
+                        let x = Int(location.x)-125
+                        let y = Int(location.y)-75
                         
-                        let mappedX = x/50
+                        var mappedX = x/50
+                        mappedX = mappedX-1
                         let mappedY = y/50
+                        
+                        
                         
                         print("The mapped values are: ", "\(mappedX)", "\(mappedY)")
                         print("The real values are: ", "\(event.locationInWindow.x)", "\(event.locationInWindow.y)")
