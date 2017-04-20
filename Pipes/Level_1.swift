@@ -50,7 +50,7 @@ class level1: SKScene  {
         circleR1.zPosition = 2
         circleR1.strokeColor = SKColor.clear
         circleR1.fillColor = SKColor.red
-        circleR1.name = "circle-1"
+        circleR1.name = "circle-0-6"
         addChild(circleR1)
         
         //Red Circle 2
@@ -59,7 +59,7 @@ class level1: SKScene  {
         circleR2.zPosition = 2
         circleR2.strokeColor = SKColor.clear
         circleR2.fillColor = SKColor.red
-        circleR2.name = "circle-2"
+        circleR2.name = "circle-1-5"
         addChild(circleR2)
         
         //Blue Circle 1
@@ -68,7 +68,7 @@ class level1: SKScene  {
         circleB1.zPosition = 2
         circleB1.strokeColor = SKColor.clear
         circleB1.fillColor = SKColor.blue
-        circleB1.name = "circle-3"
+        circleB1.name = "circle-2-5"
         addChild(circleB1)
         
         //Blue Circle 2
@@ -77,7 +77,7 @@ class level1: SKScene  {
         circleB2.zPosition = 2
         circleB2.strokeColor = SKColor.clear
         circleB2.fillColor = SKColor.blue
-        circleB2.name = "circle-4"
+        circleB2.name = "circle-1-1"
         addChild(circleB2)
         
         //Yellow Circle 1
@@ -86,7 +86,7 @@ class level1: SKScene  {
         circleY1.zPosition = 2
         circleY1.strokeColor = SKColor.clear
         circleY1.fillColor = SKColor.yellow
-        circleY1.name = "circle-5"
+        circleY1.name = "circle-1-4"
         addChild(circleY1)
         
         //Yellow Circle 2
@@ -95,7 +95,7 @@ class level1: SKScene  {
         circleY2.zPosition = 2
         circleY2.strokeColor = SKColor.clear
         circleY2.fillColor = SKColor.yellow
-        circleY2.name = "circle-6"
+        circleY2.name = "circle-4-4"
         addChild(circleY2)
         
         //Purple Circle 1
@@ -104,7 +104,7 @@ class level1: SKScene  {
         circleP1.zPosition = 2
         circleP1.strokeColor = SKColor.clear
         circleP1.fillColor = SKColor.purple
-        circleP1.name = "circle-7"
+        circleP1.name = "circle-1-3"
         addChild(circleP1)
         
         //Purple Circle 2
@@ -113,7 +113,7 @@ class level1: SKScene  {
         circleP2.zPosition = 2
         circleP2.strokeColor = SKColor.clear
         circleP2.fillColor = SKColor.purple
-        circleP2.name = "circle-8"
+        circleP2.name = "circle-3-2"
         addChild(circleP2)
         
         //Green Circle 1
@@ -122,7 +122,7 @@ class level1: SKScene  {
         circleG1.zPosition = 2
         circleG1.strokeColor = SKColor.clear
         circleG1.fillColor = SKColor.green
-        circleG1.name = "circle-9"
+        circleG1.name = "circle-2-3"
         addChild(circleG1)
         
         //Green Circle 2
@@ -131,7 +131,7 @@ class level1: SKScene  {
         circleG2.zPosition = 2
         circleG2.strokeColor = SKColor.clear
         circleG2.fillColor = SKColor.green
-        circleG2.name = "circle-10"
+        circleG2.name = "circle-4-2"
         addChild(circleG2)
     }
     override func mouseDown(with event: NSEvent) {
@@ -140,14 +140,8 @@ class level1: SKScene  {
                 if nodeName.contains("circle") {
                     if node.contains(event.locationInWindow) {
                         let number = nodeName.components(separatedBy: "-")
-                        let location = event.locationInWindow // obtaion mouse click location
-                        let x = Int(location.x)-150
-                        let y = Int(location.y)-100
                         
-                        let mappedX = x/50
-                        let mappedY = y/50
-                        
-                        print("The mapped values are: ", "\(mappedX)", "\(mappedY)")
+                        print("The mapped values are: ", "\(number[1])", "\(number[2])")
                         print("The real values are: ", "\(event.locationInWindow.x)", "\(event.locationInWindow.y)")
                     }
                 }
