@@ -136,16 +136,21 @@ class level1: SKScene  {
     }
     override func mouseDown(with event: NSEvent) {
         
-        //Find coordinates for nodes as well as mapped values. 
+        //Find coordinates for nodes as well as mapped values.
         for node in self.children {
             if let nodeName = node.name {
                 if nodeName.contains("circle") {
                     if node.contains(event.locationInWindow) {
                         let number = nodeName.components(separatedBy: "-")
+                        let location = event.locationInWindow // obtaion mouse click location
                         
+                        let x = Int(location.x)-150
+                        let y = Int(location.y)-100
                         
+                        let mappedX = x/50
+                        let mappedY = y/50
                         
-                        print("The mapped values are: ", "\(number[1])", "\(number[2])")
+                        print("The mapped values are: ", "\(mappedX)", "\(mappedY)")
                         print("The real values are: ", "\(event.locationInWindow.x)", "\(event.locationInWindow.y)")
                     }
                 }
