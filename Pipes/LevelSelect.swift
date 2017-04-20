@@ -74,6 +74,11 @@ class LevelSelect: SKScene {
                             let revealAnimation = SKTransition.doorsOpenVertical(withDuration: 0.5)
                             view?.presentScene(level1Scene, transition: revealAnimation)
                         }
+                        if Int(number[1]) == 2 {
+                            let level1Scene = level2(size: size)
+                            let revealAnimation = SKTransition.doorsOpenVertical(withDuration: 0.5)
+                            view?.presentScene(level1Scene, transition: revealAnimation)
+                        }
                         
                     }
                 }
