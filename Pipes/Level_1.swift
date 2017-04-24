@@ -180,12 +180,13 @@ class level1: SKScene  {
                         
                     } else if nodeName.contains("ConnectBoxWidth"){
                         //If Width box is clicked.
-//                        node.fillColor = SKColor.red
-                        print(number[1])
+                        let colorize = SKAction.colorize(with: SKColor.red, colorBlendFactor: 1, duration: 5)
+                        node.run(colorize)
+                        print("\(number[1])", "W")
                     } else if nodeName.contains("ConnectiBoxHeight") {
                         //If Height box is clicked.
-//                        node.fillColor = SKColor.red
-                        print(number[1])
+                        
+                        print("\(number[1])", "H")
                     }
                 }
             }
