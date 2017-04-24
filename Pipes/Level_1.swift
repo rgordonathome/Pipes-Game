@@ -12,7 +12,11 @@ import GameplayKit
 class level1: SKScene  {
     override func didMove(to view: SKView) {
         backgroundColor = SKColor.black
+        
+        //Create variable that allows all the boxes to have an assigned number. 
         var boxCount : Int = 0
+        
+        //Make array of X and Y values for the circles being used.
         let circlePositionArray = [250, 450, 300, 400, 350, 400, 300, 200, 300, 350, 450, 350, 300, 300, 400, 250, 350, 300, 450, 250]
         
         //Background
@@ -30,8 +34,8 @@ class level1: SKScene  {
         titleText.zPosition = 1
         titleText.position = CGPoint(x: 400, y: 550)
         addChild(titleText)
-        
-        //Add grid
+    
+        //Make the grid start at the top left and end at the bottom right.
         for j in stride(from: 425, through: 125, by: -50) {
             for i in stride(from: 225, through: 525, by: 50) {
                 let boxGrid = SKShapeNode(rect: CGRect(x: i, y: j, width: 50, height: 50))
@@ -43,14 +47,14 @@ class level1: SKScene  {
                 boxCount += 1
             }
         }
-        //Add the different circles to connect the dots
+        //Add the different circles to be connected by lines. 
         //Red circle 1
         let circleR1 = SKShapeNode(circleOfRadius: 22)
         circleR1.position = CGPoint(x: circlePositionArray[0], y: circlePositionArray[1])
         circleR1.zPosition = 2
         circleR1.strokeColor = SKColor.clear
         circleR1.fillColor = SKColor.red
-        circleR1.name = "circle-0-6"
+        circleR1.name = "circle-1"
         addChild(circleR1)
         
         //Red Circle 2
@@ -59,7 +63,7 @@ class level1: SKScene  {
         circleR2.zPosition = 2
         circleR2.strokeColor = SKColor.clear
         circleR2.fillColor = SKColor.red
-        circleR2.name = "circle-1-5"
+        circleR2.name = "circle-2"
         addChild(circleR2)
         
         //Blue Circle 1
@@ -68,7 +72,7 @@ class level1: SKScene  {
         circleB1.zPosition = 2
         circleB1.strokeColor = SKColor.clear
         circleB1.fillColor = SKColor.blue
-        circleB1.name = "circle-2-5"
+        circleB1.name = "circle-3"
         addChild(circleB1)
         
         //Blue Circle 2
@@ -77,7 +81,7 @@ class level1: SKScene  {
         circleB2.zPosition = 2
         circleB2.strokeColor = SKColor.clear
         circleB2.fillColor = SKColor.blue
-        circleB2.name = "circle-1-1"
+        circleB2.name = "circle-4"
         addChild(circleB2)
         
         //Yellow Circle 1
@@ -86,7 +90,7 @@ class level1: SKScene  {
         circleY1.zPosition = 2
         circleY1.strokeColor = SKColor.clear
         circleY1.fillColor = SKColor.yellow
-        circleY1.name = "circle-1-4"
+        circleY1.name = "circle-5"
         addChild(circleY1)
         
         //Yellow Circle 2
@@ -95,7 +99,7 @@ class level1: SKScene  {
         circleY2.zPosition = 2
         circleY2.strokeColor = SKColor.clear
         circleY2.fillColor = SKColor.yellow
-        circleY2.name = "circle-4-4"
+        circleY2.name = "circle-6"
         addChild(circleY2)
         
         //Purple Circle 1
@@ -104,7 +108,7 @@ class level1: SKScene  {
         circleP1.zPosition = 2
         circleP1.strokeColor = SKColor.clear
         circleP1.fillColor = SKColor.purple
-        circleP1.name = "circle-1-3"
+        circleP1.name = "circle-7"
         addChild(circleP1)
         
         //Purple Circle 2
@@ -113,7 +117,7 @@ class level1: SKScene  {
         circleP2.zPosition = 2
         circleP2.strokeColor = SKColor.clear
         circleP2.fillColor = SKColor.purple
-        circleP2.name = "circle-3-2"
+        circleP2.name = "circle-8"
         addChild(circleP2)
         
         //Green Circle 1
@@ -122,7 +126,7 @@ class level1: SKScene  {
         circleG1.zPosition = 2
         circleG1.strokeColor = SKColor.clear
         circleG1.fillColor = SKColor.green
-        circleG1.name = "circle-2-3"
+        circleG1.name = "circle-9"
         addChild(circleG1)
         
         //Green Circle 2
@@ -131,18 +135,31 @@ class level1: SKScene  {
         circleG2.zPosition = 2
         circleG2.strokeColor = SKColor.clear
         circleG2.fillColor = SKColor.green
-        circleG2.name = "circle-4-2"
+        circleG2.name = "circle-10"
         addChild(circleG2)
     }
     override func mouseDown(with event: NSEvent) {
+        let location = event.locationInWindow // obtaion mouse click location
+        
+        //Map the grid value to a 1-7 value becuase the grid is 7x7.
+        //Take away bounradies of the grid.
+        let x = Int(location.x)-125
+        let y = Int(location.y)-75
+        
+        //Divide by the width and height of the grid quare.
+        var mappedX = x/50
+        mappedX = mappedX-1
+        let mappedY = y/50
+        
+        //Print the now mappe values of the grid.
+        print("The mapped values are: ", "\(mappedX)", "\(mappedY)")
+        print("The real values are: ", "\(event.locationInWindow.x)", "\(event.locationInWindow.y)")
         for node in self.children {
             if let nodeName = node.name {
                 if nodeName.contains("circle") {
                     if node.contains(event.locationInWindow) {
-                        let number = nodeName.components(separatedBy: "-")
                         
-                        print("The mapped values are: ", "\(number[1])", "\(number[2])")
-                        print("The real values are: ", "\(event.locationInWindow.x)", "\(event.locationInWindow.y)")
+                        
                     }
                 }
             }
