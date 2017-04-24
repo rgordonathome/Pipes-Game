@@ -30,7 +30,7 @@ class level2: SKScene  {
         
         return(x, y)
     }
-
+    
     override func didMove(to view: SKView) {
         backgroundColor = SKColor.black
         
@@ -144,11 +144,13 @@ class level2: SKScene  {
     }
     override func mouseDown(with event: NSEvent) {
         
-        //Print the now mappe values of the grid.
-        print("The mapped values are: ", "\(logic.map(x: Int(event.locationInWindow.x), y: Int(event.locationInWindow.y)))")
-        print("The real values are: ", "\(event.locationInWindow.x)", "\(event.locationInWindow.y)")
+        let mappedVal = logic.map(x: Int(event.locationInWindow.x), y: Int(event.locationInWindow.y))
         
-              for node in self.children {
+        //Print the now mappe values of the grid.
+        print("The mapped values are: ", "\(mappedVal)")
+        print("The real values are: ", "\(event.locationInWindow.x)", "&", "\(event.locationInWindow.y)")
+        
+        for node in self.children {
             if let nodeName = node.name {
                 if nodeName.contains("circle") {
                     if node.contains(event.locationInWindow) {

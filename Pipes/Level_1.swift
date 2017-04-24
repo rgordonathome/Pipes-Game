@@ -58,7 +58,7 @@ class level1: SKScene  {
                 connectingBoxWidth.name = "ConnectBoxWidth-\(boxCount)"
                 addChild(connectingBoxWidth)
                 
-                //Connecting lines (height) 
+                //Connecting lines (height)
                 let connectingBoxHeight = SKShapeNode(rect: CGRect(x: Int(Double(i)+12.5), y: j, width: 25, height: 50))
                 connectingBoxHeight.zPosition = 3
                 connectingBoxHeight.fillColor = SKColor.clear
@@ -163,15 +163,29 @@ class level1: SKScene  {
     override func mouseDown(with event: NSEvent) {
         
         //Print the now mappe values of the grid.
-        print("The mapped values are: ", "\(logic.map(x: Int(event.locationInWindow.x), y: Int(event.locationInWindow.y)))")
-        print("The real values are: ", "\(event.locationInWindow.x)", "\(event.locationInWindow.y)")
+        
+        let mappedVal = logic.map(x: Int(event.locationInWindow.x), y: Int(event.locationInWindow.y))
+        
+        print("The mapped values are: ", "\(mappedVal)")
+        print("The real values are: ", "\(event.locationInWindow.x)", "&", "\(event.locationInWindow.y)")
+        print("The un-mapped func values are: ", "\(logic.oppositeMap(x: mappedVal.0, y: mappedVal.1))")
+        
         for node in self.children {
             if let nodeName = node.name {
-                if nodeName.contains("circle") {
-                    if node.contains(event.locationInWindow) {
+                if node.contains(event.locationInWindow) {
+                    let number = nodeName.components(separatedBy: "-")
+                    
+                    if nodeName.contains("circle") {
+                        //If circle is clicked
                         
-                        print(String(describing: node.name))
-                        
+                    } else if nodeName.contains("ConnectBoxWidth"){
+                        //If Width box is clicked.
+//                        node.fillColor = SKColor.red
+                        print(number[1])
+                    } else if nodeName.contains("ConnectiBoxHeight") {
+                        //If Height box is clicked.
+//                        node.fillColor = SKColor.red
+                        print(number[1])
                     }
                 }
             }
