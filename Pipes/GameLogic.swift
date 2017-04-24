@@ -32,7 +32,20 @@ class GameLogic {
         x -= 1
         y = y/50
         
-        return(x, y)
+        return (x, y)
+    }
+    func oppositeMap(x: Int, y: Int) -> (Int, Int) {
+        var x = x
+        var y = y
+        
+        x = x+1
+        x = x*50
+        y = y*50
+        
+        x = x + 125
+        y = y + 75
+        
+        return (x, y)
     }
 
     
