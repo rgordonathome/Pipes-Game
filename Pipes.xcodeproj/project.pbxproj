@@ -70,6 +70,7 @@
 				EDF092081E65FD7F006FC426 /* ISP Proposal.docx */,
 				ED9C718B1E68562F00B8F44E /* Asset_Tracking_Form.docx */,
 				ED65B2611E9E9F9D00FCE2B9 /* Checklpoint1.docx */,
+				ED5A3BFB1EAE340E00808E92 /* GameLogic.swift */,
 				EDF091F31E65FBB7006FC426 /* AppDelegate.swift */,
 				EDF091F91E65FBB7006FC426 /* TitlePage.swift */,
 				ED489B201E6DE99600E40EE2 /* LevelSelect.swift */,
@@ -80,7 +81,6 @@
 				EDF091FD1E65FBB7006FC426 /* Assets.xcassets */,
 				EDF091FF1E65FBB7006FC426 /* Main.storyboard */,
 				EDF092021E65FBB7006FC426 /* Info.plist */,
-				ED5A3BFB1EAE340E00808E92 /* GameLogic.swift */,
 			);
 			path = Pipes;
 			sourceTree = "<group>";

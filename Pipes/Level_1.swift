@@ -42,11 +42,29 @@ class level1: SKScene  {
         //Make the grid start at the top left and end at the bottom right.
         for j in stride(from: 425, through: 125, by: -50) {
             for i in stride(from: 225, through: 525, by: 50) {
-                let boxGrid = SKShapeNode(rect: CGRect(x: i, y: j, width: 50, height: 50))
-                boxGrid.zPosition = 1
-                boxGrid.fillColor = SKColor.clear
-                boxGrid.name = "boxGRid-\(boxCount)"
-                addChild(boxGrid)
+                
+                //Grid
+                let gridBox = SKShapeNode(rect: CGRect(x: i, y: j, width: 50, height: 50))
+                gridBox.zPosition = 1
+                gridBox.fillColor = SKColor.clear
+                gridBox.name = "gridBox-\(boxCount)"
+                addChild(gridBox)
+                
+                //Connecting lines (width)
+                let connectingBoxWidth = SKShapeNode(rect: CGRect(x: i, y: Int(Double(j)+12.5), width: 50, height: 25))
+                connectingBoxWidth.zPosition = 2
+                connectingBoxWidth.fillColor = SKColor.clear
+                connectingBoxWidth.strokeColor = SKColor.clear
+                connectingBoxWidth.name = "ConnectBoxWidth-\(boxCount)"
+                addChild(connectingBoxWidth)
+                
+                //Connecting lines (height) 
+                let connectingBoxHeight = SKShapeNode(rect: CGRect(x: Int(Double(i)+12.5), y: j, width: 25, height: 50))
+                connectingBoxHeight.zPosition = 3
+                connectingBoxHeight.fillColor = SKColor.clear
+                connectingBoxHeight.strokeColor = SKColor.clear
+                connectingBoxHeight.name = "ConnectBoxHeight-\(boxCount)"
+                addChild(connectingBoxHeight)
                 
                 boxCount += 1
             }
