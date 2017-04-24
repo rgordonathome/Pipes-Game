@@ -10,10 +10,14 @@ import SpriteKit
 import GameplayKit
 
 class level1: SKScene  {
+    
+    // Properties
+    let logic = GameLogic()
+    
     override func didMove(to view: SKView) {
         backgroundColor = SKColor.black
         
-        //Create variable that allows all the boxes to have an assigned number. 
+        //Create variable that allows all the boxes to have an assigned number.
         var boxCount : Int = 0
         
         //Make array of X and Y values for the circles being used.
@@ -34,7 +38,7 @@ class level1: SKScene  {
         titleText.zPosition = 1
         titleText.position = CGPoint(x: 400, y: 550)
         addChild(titleText)
-    
+        
         //Make the grid start at the top left and end at the bottom right.
         for j in stride(from: 425, through: 125, by: -50) {
             for i in stride(from: 225, through: 525, by: 50) {
@@ -47,7 +51,7 @@ class level1: SKScene  {
                 boxCount += 1
             }
         }
-        //Add the different circles to be connected by lines. 
+        //Add the different circles to be connected by lines.
         //Red circle 1
         let circleR1 = SKShapeNode(circleOfRadius: 22)
         circleR1.position = CGPoint(x: circlePositionArray[0], y: circlePositionArray[1])
@@ -139,26 +143,16 @@ class level1: SKScene  {
         addChild(circleG2)
     }
     override func mouseDown(with event: NSEvent) {
-        let location = event.locationInWindow // obtaion mouse click location
-        
-        //Map the grid value to a 1-7 value becuase the grid is 7x7.
-        //Take away bounradies of the grid.
-        let x = Int(location.x)-125
-        let y = Int(location.y)-75
-        
-        //Divide by the width and height of the grid quare.
-        var mappedX = x/50
-        mappedX = mappedX-1
-        let mappedY = y/50
         
         //Print the now mappe values of the grid.
-        print("The mapped values are: ", "\(mappedX)", "\(mappedY)")
+        print("The mapped values are: ", "\(logic.map(x: Int(event.locationInWindow.x), y: Int(event.locationInWindow.y)))")
         print("The real values are: ", "\(event.locationInWindow.x)", "\(event.locationInWindow.y)")
         for node in self.children {
             if let nodeName = node.name {
                 if nodeName.contains("circle") {
                     if node.contains(event.locationInWindow) {
                         
+                        print(String(describing: node.name))
                         
                     }
                 }

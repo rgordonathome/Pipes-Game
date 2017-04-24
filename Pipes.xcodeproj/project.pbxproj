@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		ED489B211E6DE99600E40EE2 /* LevelSelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED489B201E6DE99600E40EE2 /* LevelSelect.swift */; };
+		ED5A3BFC1EAE340E00808E92 /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5A3BFB1EAE340E00808E92 /* GameLogic.swift */; };
 		ED7B50791E7042870033E6B1 /* QuickPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED7B50781E7042870033E6B1 /* QuickPlay.swift */; };
 		EDCDAE0B1EA92CE3003EDC95 /* Level_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCDAE0A1EA92CE3003EDC95 /* Level_2.swift */; };
 		EDF091F41E65FBB7006FC426 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF091F31E65FBB7006FC426 /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		ED489B201E6DE99600E40EE2 /* LevelSelect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelSelect.swift; sourceTree = "<group>"; };
+		ED5A3BFB1EAE340E00808E92 /* GameLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
 		ED65B2611E9E9F9D00FCE2B9 /* Checklpoint1.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Checklpoint1.docx; sourceTree = "<group>"; };
 		ED7B50781E7042870033E6B1 /* QuickPlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuickPlay.swift; sourceTree = "<group>"; };
 		ED9C718B1E68562F00B8F44E /* Asset_Tracking_Form.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = Asset_Tracking_Form.docx; sourceTree = SOURCE_ROOT; };
@@ -78,6 +80,7 @@
 				EDF091FD1E65FBB7006FC426 /* Assets.xcassets */,
 				EDF091FF1E65FBB7006FC426 /* Main.storyboard */,
 				EDF092021E65FBB7006FC426 /* Info.plist */,
+				ED5A3BFB1EAE340E00808E92 /* GameLogic.swift */,
 			);
 			path = Pipes;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 			files = (
 				ED489B211E6DE99600E40EE2 /* LevelSelect.swift in Sources */,
 				ED7B50791E7042870033E6B1 /* QuickPlay.swift in Sources */,
+				ED5A3BFC1EAE340E00808E92 /* GameLogic.swift in Sources */,
 				EDCDAE0B1EA92CE3003EDC95 /* Level_2.swift in Sources */,
 				EDF401DD1E8BEA5D0069BCC2 /* Level_1.swift in Sources */,
 				EDF091FC1E65FBB7006FC426 /* ViewController.swift in Sources */,

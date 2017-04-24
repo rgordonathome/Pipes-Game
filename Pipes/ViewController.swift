@@ -22,6 +22,8 @@ class ViewController: NSViewController {
         view.addSubview(skView)
         scene.scaleMode = .aspectFit
         skView.presentScene(scene)
+        
+       
     }
 }
 

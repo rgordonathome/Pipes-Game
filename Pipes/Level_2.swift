@@ -10,6 +10,27 @@ import SpriteKit
 import GameplayKit
 
 class level2: SKScene  {
+    
+    // Properties
+    let logic = GameLogic()
+    
+    func map( x: Int, y: Int) -> (Int, Int) {
+        var x = x
+        var y = y
+        
+        //Map the grid value to a 1-7 value becuase the grid is 7x7.
+        //Take away bounradies of the grid.
+        x = x - 125
+        y = y - 75
+        
+        //Divide by the width and height of the grid quare.
+        x = x/50
+        x -= 1
+        y = y/50
+        
+        return(x, y)
+    }
+
     override func didMove(to view: SKView) {
         backgroundColor = SKColor.black
         
@@ -122,28 +143,17 @@ class level2: SKScene  {
         
     }
     override func mouseDown(with event: NSEvent) {
-        let location = event.locationInWindow // obtaion mouse click location
-        
-        //Map the grid value to a 1-7 value becuase the grid is 7x7.
-        //Take away bounradies of the grid.
-        let x = Int(location.x)-125
-        let y = Int(location.y)-75
-        
-        //Divide by the width and height of the grid quare.
-        var mappedX = x/50
-        mappedX = mappedX-1
-        let mappedY = y/50
         
         //Print the now mappe values of the grid.
-        print("The mapped values are: ", "\(mappedX)", "\(mappedY)")
+        print("The mapped values are: ", "\(logic.map(x: Int(event.locationInWindow.x), y: Int(event.locationInWindow.y)))")
         print("The real values are: ", "\(event.locationInWindow.x)", "\(event.locationInWindow.y)")
-        for node in self.children {
+        
+              for node in self.children {
             if let nodeName = node.name {
                 if nodeName.contains("circle") {
                     if node.contains(event.locationInWindow) {
                         
-                        
-                        print(node.name)
+                        print(String(describing: node.name))
                     }
                 }
             }
