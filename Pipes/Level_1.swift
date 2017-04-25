@@ -53,9 +53,9 @@ class level1: SKScene  {
                 //Connecting lines (width)
                 let connectingBoxWidth = SKShapeNode(rect: CGRect(x: i, y: Int(Double(j)+12.5), width: 50, height: 25))
                 connectingBoxWidth.zPosition = 2
-                connectingBoxWidth.fillColor = SKColor.clear
-                connectingBoxWidth.strokeColor = SKColor.clear
-                connectingBoxWidth.name = "ConnectBoxWidth-\(boxCount)"
+                connectingBoxWidth.fillColor = SKColor.clear //No fill colour
+                connectingBoxWidth.strokeColor = SKColor.clear //No outline colour, to make it completely invisible
+                connectingBoxWidth.name = "ConnectBoxWidth-\(boxCount)" //Allow a specific number to be added to the node. This helps in identifying it.
                 addChild(connectingBoxWidth)
                 
                 //Connecting lines (height)
@@ -161,19 +161,17 @@ class level1: SKScene  {
         addChild(circleG2)
     }
     override func mouseDown(with event: NSEvent) {
-        
-        //Print the now mappe values of the grid.
-        
-        let mappedVal = logic.map(x: Int(event.locationInWindow.x), y: Int(event.locationInWindow.y))
+
+        let mappedVal = logic.map(x: Int(event.locationInWindow.x), y: Int(event.locationInWindow.y)) //Create variable that holds mapped values to make it easier to use later on.
         
         print("The mapped values are: ", "\(mappedVal)")
         print("The real values are: ", "\(event.locationInWindow.x)", "&", "\(event.locationInWindow.y)")
         print("The un-mapped func values are: ", "\(logic.oppositeMap(x: mappedVal.0, y: mappedVal.1))")
         
-        for node in self.children {
-            if let nodeName = node.name {
-                if node.contains(event.locationInWindow) {
-                    let number = nodeName.components(separatedBy: "-")
+        for node in self.children { //Get all nodes
+            if let nodeName = node.name { //unwrap the name of the node.
+                if node.contains(event.locationInWindow) { //Check if the node is the one that is clicked on
+                    let number = nodeName.components(separatedBy: "-") //Create an array of values to get the number of the node clicked that is separated by a '-'
                     
                     if nodeName.contains("circle") {
                         //If circle is clicked
@@ -183,6 +181,7 @@ class level1: SKScene  {
                         let colorize = SKAction.colorize(with: SKColor.red, colorBlendFactor: 1, duration: 5)
                         node.run(colorize)
                         print("\(number[1])", "W")
+                        
                     } else if nodeName.contains("ConnectiBoxHeight") {
                         //If Height box is clicked.
                         
