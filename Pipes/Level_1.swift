@@ -13,6 +13,8 @@ class level1: SKScene  {
     
     // Properties
     let logic = GameLogic()
+    var lastCircleClicked = SKColor()
+    var lastMappedValueClicked : ( Int, Int ) = ( -2 , -2 )
     
     override func didMove(to view: SKView) {
         backgroundColor = SKColor.black
@@ -52,7 +54,7 @@ class level1: SKScene  {
                 
                 //Connecting lines (width)
                 let connectingBoxWidth = SKShapeNode(rect: CGRect(x: i, y: Int(Double(j)+12.5), width: 50, height: 25))
-                connectingBoxWidth.zPosition = 2
+                connectingBoxWidth.zPosition = 100
                 connectingBoxWidth.fillColor = SKColor.clear //No fill colour
                 connectingBoxWidth.strokeColor = SKColor.clear //No outline colour, to make it completely invisible
                 connectingBoxWidth.name = "ConnectBoxWidth-\(boxCount)" //Allow a specific number to be added to the node. This helps in identifying it.
@@ -60,7 +62,7 @@ class level1: SKScene  {
                 
                 //Connecting lines (height)
                 let connectingBoxHeight = SKShapeNode(rect: CGRect(x: Int(Double(i)+12.5), y: j, width: 25, height: 50))
-                connectingBoxHeight.zPosition = 3
+                connectingBoxHeight.zPosition = 101
                 connectingBoxHeight.fillColor = SKColor.clear
                 connectingBoxHeight.strokeColor = SKColor.clear
                 connectingBoxHeight.name = "ConnectBoxHeight-\(boxCount)"
@@ -70,116 +72,115 @@ class level1: SKScene  {
             }
         }
         
-        for i in stride(from: 1, through: 10, by: 2) {
-            let circle = SKShapeNode(circleOfRadius: 22)
-            circle.position = CGPoint(x: circlePositionArray[i], y: circlePositionArray[i+1])
-            circle.zPosition = 2
-            circle.strokeColor = SKColor.clear
-            if (i == 1) {
-                circle.fillColor = SKColor.red
-            } else if (i == 3) {
-                circle.fillColor = SKColor.blue
-            } else if (i == 5) {
-                circle.fillColor = SKColor.yellow
-            } else if (i == 7) {
-                circle.fillColor = SKColor.purple
-            } else if (i == 9) {
-                circle.fillColor = SKColor.green
-            }
-            circle.name = "circle-\(String(i))"
-            addChild(circle)
-        }
-        //        //Add the different circles to be connected by lines.
-        //        //Red circle 1
-        //        let circleR1 = SKShapeNode(circleOfRadius: 22)
-        //        circleR1.position = CGPoint(x: circlePositionArray[0], y: circlePositionArray[1])
-        //        circleR1.zPosition = 2
-        //        circleR1.strokeColor = SKColor.clear
-        //        circleR1.fillColor = SKColor.red
-        //        circleR1.name = "circle-1"
-        //        addChild(circleR1)
-        //
-        //        //Red Circle 2
-        //        let circleR2 = SKShapeNode(circleOfRadius: 22)
-        //        circleR2.position = CGPoint(x: circlePositionArray[2], y: circlePositionArray[3])
-        //        circleR2.zPosition = 2
-        //        circleR2.strokeColor = SKColor.clear
-        //        circleR2.fillColor = SKColor.red
-        //        circleR2.name = "circle-2"
-        //        addChild(circleR2)
-        //
-        //        //Blue Circle 1
-        //        let circleB1 = SKShapeNode(circleOfRadius: 22)
-        //        circleB1.position = CGPoint(x: circlePositionArray[4], y: circlePositionArray[5])
-        //        circleB1.zPosition = 2
-        //        circleB1.strokeColor = SKColor.clear
-        //        circleB1.fillColor = SKColor.blue
-        //        circleB1.name = "circle-3"
-        //        addChild(circleB1)
-        //
-        //        //Blue Circle 2
-        //        let circleB2 = SKShapeNode(circleOfRadius: 22)
-        //        circleB2.position = CGPoint(x: circlePositionArray[6], y: circlePositionArray[7])
-        //        circleB2.zPosition = 2
-        //        circleB2.strokeColor = SKColor.clear
-        //        circleB2.fillColor = SKColor.blue
-        //        circleB2.name = "circle-4"
-        //        addChild(circleB2)
-        //
-        //        //Yellow Circle 1
-        //        let circleY1 = SKShapeNode(circleOfRadius: 22)
-        //        circleY1.position = CGPoint(x: circlePositionArray[8], y: circlePositionArray[9])
-        //        circleY1.zPosition = 2
-        //        circleY1.strokeColor = SKColor.clear
-        //        circleY1.fillColor = SKColor.yellow
-        //        circleY1.name = "circle-5"
-        //        addChild(circleY1)
-        //
-        //        //Yellow Circle 2
-        //        let circleY2 = SKShapeNode(circleOfRadius: 22)
-        //        circleY2.position = CGPoint(x: circlePositionArray[10], y: circlePositionArray[11])
-        //        circleY2.zPosition = 2
-        //        circleY2.strokeColor = SKColor.clear
-        //        circleY2.fillColor = SKColor.yellow
-        //        circleY2.name = "circle-6"
-        //        addChild(circleY2)
-        //
-        //        //Purple Circle 1
-        //        let circleP1 = SKShapeNode(circleOfRadius: 22)
-        //        circleP1.position = CGPoint(x: circlePositionArray[12], y: circlePositionArray[13])
-        //        circleP1.zPosition = 2
-        //        circleP1.strokeColor = SKColor.clear
-        //        circleP1.fillColor = SKColor.purple
-        //        circleP1.name = "circle-7"
-        //        addChild(circleP1)
-        //
-        //        //Purple Circle 2
-        //        let circleP2 = SKShapeNode(circleOfRadius: 22)
-        //        circleP2.position = CGPoint(x: circlePositionArray[14], y: circlePositionArray[15])
-        //        circleP2.zPosition = 2
-        //        circleP2.strokeColor = SKColor.clear
-        //        circleP2.fillColor = SKColor.purple
-        //        circleP2.name = "circle-8"
-        //        addChild(circleP2)
-        //
-        //        //Green Circle 1
-        //        let circleG1 = SKShapeNode(circleOfRadius: 22)
-        //        circleG1.position = CGPoint(x: circlePositionArray[16], y: circlePositionArray[17])
-        //        circleG1.zPosition = 2
-        //        circleG1.strokeColor = SKColor.clear
-        //        circleG1.fillColor = SKColor.green
-        //        circleG1.name = "circle-9"
-        //        addChild(circleG1)
-        //
-        //        //Green Circle 2
-        //        let circleG2 = SKShapeNode(circleOfRadius: 22)
-        //        circleG2.position = CGPoint(x: circlePositionArray[18], y: circlePositionArray[19])
-        //        circleG2.zPosition = 2
-        //        circleG2.strokeColor = SKColor.clear
-        //        circleG2.fillColor = SKColor.green
-        //        circleG2.name = "circle-10"
-        //        addChild(circleG2)
-        //    }
+        //        for i in stride(from: 1, through: 10, by: 2) {
+        //            let circle = SKShapeNode(circleOfRadius: 22)
+        //            circle.position = CGPoint(x: circlePositionArray[i], y: circlePositionArray[i+1])
+        //            circle.zPosition = 2
+        //            circle.strokeColor = SKColor.clear
+        //            if (i == 1) {
+        //                circle.fillColor = SKColor.red
+        //            } else if (i == 3) {
+        //                circle.fillColor = SKColor.blue
+        //            } else if (i == 5) {
+        //                circle.fillColor = SKColor.yellow
+        //            } else if (i == 7) {
+        //                circle.fillColor = SKColor.purple
+        //            } else if (i == 9) {
+        //                circle.fillColor = SKColor.green
+        //            }
+        //            circle.name = "circle-\(String(i))"
+        //            addChild(circle)
+        //        }
+        //Add the different circles to be connected by lines.
+        //Red circle 1
+        let circleR1 = SKShapeNode(circleOfRadius: 22)
+        circleR1.position = CGPoint(x: circlePositionArray[0], y: circlePositionArray[1])
+        circleR1.zPosition = 2
+        circleR1.strokeColor = SKColor.clear
+        circleR1.fillColor = SKColor.red
+        circleR1.name = "circle-1"
+        addChild(circleR1)
+        
+        //Red Circle 2
+        let circleR2 = SKShapeNode(circleOfRadius: 22)
+        circleR2.position = CGPoint(x: circlePositionArray[2], y: circlePositionArray[3])
+        circleR2.zPosition = 2
+        circleR2.strokeColor = SKColor.clear
+        circleR2.fillColor = SKColor.red
+        circleR2.name = "circle-2"
+        addChild(circleR2)
+        
+        //Blue Circle 1
+        let circleB1 = SKShapeNode(circleOfRadius: 22)
+        circleB1.position = CGPoint(x: circlePositionArray[4], y: circlePositionArray[5])
+        circleB1.zPosition = 2
+        circleB1.strokeColor = SKColor.clear
+        circleB1.fillColor = SKColor.blue
+        circleB1.name = "circle-3"
+        addChild(circleB1)
+        
+        //Blue Circle 2
+        let circleB2 = SKShapeNode(circleOfRadius: 22)
+        circleB2.position = CGPoint(x: circlePositionArray[6], y: circlePositionArray[7])
+        circleB2.zPosition = 2
+        circleB2.strokeColor = SKColor.clear
+        circleB2.fillColor = SKColor.blue
+        circleB2.name = "circle-4"
+        addChild(circleB2)
+        
+        //Yellow Circle 1
+        let circleY1 = SKShapeNode(circleOfRadius: 22)
+        circleY1.position = CGPoint(x: circlePositionArray[8], y: circlePositionArray[9])
+        circleY1.zPosition = 2
+        circleY1.strokeColor = SKColor.clear
+        circleY1.fillColor = SKColor.yellow
+        circleY1.name = "circle-5"
+        addChild(circleY1)
+        
+        //Yellow Circle 2
+        let circleY2 = SKShapeNode(circleOfRadius: 22)
+        circleY2.position = CGPoint(x: circlePositionArray[10], y: circlePositionArray[11])
+        circleY2.zPosition = 2
+        circleY2.strokeColor = SKColor.clear
+        circleY2.fillColor = SKColor.yellow
+        circleY2.name = "circle-6"
+        addChild(circleY2)
+        
+        //Purple Circle 1
+        let circleP1 = SKShapeNode(circleOfRadius: 22)
+        circleP1.position = CGPoint(x: circlePositionArray[12], y: circlePositionArray[13])
+        circleP1.zPosition = 2
+        circleP1.strokeColor = SKColor.clear
+        circleP1.fillColor = SKColor.purple
+        circleP1.name = "circle-7"
+        addChild(circleP1)
+        
+        //Purple Circle 2
+        let circleP2 = SKShapeNode(circleOfRadius: 22)
+        circleP2.position = CGPoint(x: circlePositionArray[14], y: circlePositionArray[15])
+        circleP2.zPosition = 2
+        circleP2.strokeColor = SKColor.clear
+        circleP2.fillColor = SKColor.purple
+        circleP2.name = "circle-8"
+        addChild(circleP2)
+        
+        //Green Circle 1
+        let circleG1 = SKShapeNode(circleOfRadius: 22)
+        circleG1.position = CGPoint(x: circlePositionArray[16], y: circlePositionArray[17])
+        circleG1.zPosition = 2
+        circleG1.strokeColor = SKColor.clear
+        circleG1.fillColor = SKColor.green
+        circleG1.name = "circle-9"
+        addChild(circleG1)
+        
+        //Green Circle 2
+        let circleG2 = SKShapeNode(circleOfRadius: 22)
+        circleG2.position = CGPoint(x: circlePositionArray[18], y: circlePositionArray[19])
+        circleG2.zPosition = 2
+        circleG2.strokeColor = SKColor.clear
+        circleG2.fillColor = SKColor.green
+        circleG2.name = "circle-10"
+        addChild(circleG2)
     }
     override func mouseDown(with event: NSEvent) {
         
@@ -192,25 +193,36 @@ class level1: SKScene  {
         for node in self.children { //Get all nodes
             if let nodeName = node.name { //unwrap the name of the node.
                 if node.contains(event.locationInWindow) { //Check if the node is the one that is clicked on
-                    let number = nodeName.components(separatedBy: "-") //Create an array of values to get the number of the node clicked that is separated by a '-'
+                    //                    let number = nodeName.components(separatedBy: "-") //Create an array of values to get the number of the node clicked that is separated by a '-'
                     
                     if nodeName.contains("circle") {
                         //If circle is clicked
+                        if let shapeNode = node as? SKShapeNode {
+                            lastCircleClicked = shapeNode.fillColor
+                        }
                         
                     } else if nodeName.contains("ConnectBoxWidth"){
-                        //If Width box is clicked.
-                        let colorize = SKAction.colorize(with: SKColor.red, colorBlendFactor: 1, duration: 5)
-                        node.run(colorize)
-                        print("\(number[1])", "W")
-                        self.nodes(at: CGPoint(x: event.locationInWindow.x, y: event.locationInWindow.y))
-                    } else if nodeName.contains("ConnectiBoxHeight") {
-                        //If Height box is clicked.
+                        //If Width box is clicked
+                        if let shapeNode = node as? SKShapeNode {
+                            shapeNode.fillColor = lastCircleClicked
+                            shapeNode.isHidden = false   // Show the connector
+                            print(lastMappedValueClicked)
+                            if (mappedVal.1 == lastMappedValueClicked.1 - 1 || mappedVal.1 == lastMappedValueClicked.1 + 1) {
+                                if nodeName.contains("ConnectBoxHeight") {
+                                    if let shapeNode = node as? SKShapeNode {
+                                        shapeNode.fillColor = lastCircleClicked
+                                        shapeNode.isHidden = false
+                                    }
+                                }
+                            }
+                        }
                         
-                        print("\(number[1])", "H")
                     }
                 }
             }
         }
+        // Keep track of the prior click position
+        lastMappedValueClicked = mappedVal
     }
 }
 
