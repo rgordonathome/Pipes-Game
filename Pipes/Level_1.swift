@@ -62,7 +62,7 @@ class level1: SKScene  {
                 
                 //Connecting lines (height)
                 let connectingBoxHeight = SKShapeNode(rect: CGRect(x: Int(Double(i)+12.5), y: j, width: 25, height: 50))
-                connectingBoxHeight.zPosition = 101
+                connectingBoxHeight.zPosition = 100
                 connectingBoxHeight.fillColor = SKColor.clear
                 connectingBoxHeight.strokeColor = SKColor.clear
                 connectingBoxHeight.name = "ConnectBoxHeight-\(boxCount)"
@@ -71,28 +71,6 @@ class level1: SKScene  {
                 boxCount += 1
             }
         }
-        
-        //        for i in stride(from: 1, through: 10, by: 2) {
-        //            let circle = SKShapeNode(circleOfRadius: 22)
-        //            circle.position = CGPoint(x: circlePositionArray[i], y: circlePositionArray[i+1])
-        //            circle.zPosition = 2
-        //            circle.strokeColor = SKColor.clear
-        //            if (i == 1) {
-        //                circle.fillColor = SKColor.red
-        //            } else if (i == 3) {
-        //                circle.fillColor = SKColor.blue
-        //            } else if (i == 5) {
-        //                circle.fillColor = SKColor.yellow
-        //            } else if (i == 7) {
-        //                circle.fillColor = SKColor.purple
-        //            } else if (i == 9) {
-        //                circle.fillColor = SKColor.green
-        //            }
-        //            circle.name = "circle-\(String(i))"
-        //            addChild(circle)
-        //        }
-        //Add the different circles to be connected by lines.
-        //Red circle 1
         let circleR1 = SKShapeNode(circleOfRadius: 22)
         circleR1.position = CGPoint(x: circlePositionArray[0], y: circlePositionArray[1])
         circleR1.zPosition = 2
@@ -198,25 +176,21 @@ class level1: SKScene  {
                     if nodeName.contains("circle") {
                         //If circle is clicked
                         if let shapeNode = node as? SKShapeNode {
-                            lastCircleClicked = shapeNode.fillColor
+                            lastCircleClicked = shapeNode.fillColor //Get the colour of the clicked circle
+                            break
                         }
                         
-                    } else if nodeName.contains("ConnectBoxWidth"){
+                    } else if nodeName.contains("ConnectBoxWidth") {
                         //If Width box is clicked
                         if let shapeNode = node as? SKShapeNode {
                             shapeNode.fillColor = lastCircleClicked
                             shapeNode.isHidden = false   // Show the connector
-                            print(lastMappedValueClicked)
+                            print("The last clicked value is: ", "\(lastMappedValueClicked)")
+                            
                             if (mappedVal.1 == lastMappedValueClicked.1 - 1 || mappedVal.1 == lastMappedValueClicked.1 + 1) {
-                                if nodeName.contains("ConnectBoxHeight") {
-                                    if let shapeNode = node as? SKShapeNode {
-                                        shapeNode.fillColor = lastCircleClicked
-                                        shapeNode.isHidden = false
-                                    }
-                                }
+                                
                             }
                         }
-                        
                     }
                 }
             }
