@@ -70,11 +70,13 @@ class LevelSelect: SKScene {
                         let number = nodeName.components(separatedBy: "-")
                         print("The level selected is: " + number[1])
                         if Int(number[1]) == 1 {
+                            //Change scene to level 1
                             let level1Scene = level1(size: size)
                             let revealAnimation = SKTransition.doorsOpenVertical(withDuration: 0.5)
                             view?.presentScene(level1Scene, transition: revealAnimation)
                         }
                         if Int(number[1]) == 2 {
+                            //Change scene to level 2
                             let level1Scene = level2(size: size)
                             let revealAnimation = SKTransition.doorsOpenVertical(withDuration: 0.5)
                             view?.presentScene(level1Scene, transition: revealAnimation)
