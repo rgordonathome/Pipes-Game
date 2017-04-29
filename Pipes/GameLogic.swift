@@ -18,7 +18,7 @@ class GameLogic {
     }
     
     // Methods
-    func map( x: Int, y: Int) -> (Int, Int) {
+    func map( x: Int, y: Int) -> (x: Int, y: Int) {
         var x = x
         var y = y
         
@@ -32,7 +32,7 @@ class GameLogic {
         x -= 1
         y = y/50
         
-        return (x, y)
+        return (x: x, y: y)
     }
     func oppositeMap(x: Int, y: Int) -> (Int, Int) {
         var x = x

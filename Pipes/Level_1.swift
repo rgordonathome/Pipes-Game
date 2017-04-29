@@ -14,7 +14,9 @@ class level1: SKScene  {
     // Properties
     let logic = GameLogic()
     var lastCircleClicked = SKColor()
-    var lastMappedValueClicked : ( Int, Int ) = ( -2 , -2 )
+    var lastMappedValueClicked : ( x: Int, y: Int ) = ( -2 , -2 )
+    let boardHeight = 7
+    let boardWidth = 7
     
     override func didMove(to view: SKView) {
         backgroundColor = SKColor.black
@@ -180,14 +182,37 @@ class level1: SKScene  {
                             break
                         }
                         
-                    } else if nodeName.contains("ConnectBoxWidth") {
-                        //If Width box is clicked
+                    } else if nodeName.contains("ConnectBox") {
+                        
+                        // DEBUG: Show where we clicked
+                        print("The last clicked value is: ", "\(lastMappedValueClicked)")
+
+                        // Only proceed if this node can be referenced as an SKShapeNode
                         if let shapeNode = node as? SKShapeNode {
-                            shapeNode.fillColor = lastCircleClicked
-                            shapeNode.isHidden = false   // Show the connector
-                            print("The last clicked value is: ", "\(lastMappedValueClicked)")
                             
-                            if (mappedVal.1 == lastMappedValueClicked.1 - 1 || mappedVal.1 == lastMappedValueClicked.1 + 1) {
+                            // Have we clicked down or up a row?
+                            if (mappedVal.y == lastMappedValueClicked.y - 1 || mappedVal.y == lastMappedValueClicked.y + 1) {
+                                
+                                // We've clicked down or up a row, so show a vertical pipe
+                                print("need to show vertical pipe for position \(shapeNode.name!)")
+                                
+                                // Get a reference to the vertical pipe node, if possible, otherwise return and quit from the mouseDown
+                                // function
+                                guard let verticalPipeNode = getVerticalPipeNode(from: nodeName) else {
+                                    print("Could not obtain reference to the vertical pipe node. This shouldn't happen, so something is wrong...")
+                                    return
+                                }
+                                
+                                // Make the vertical pipe node visible
+                                verticalPipeNode.fillColor = lastCircleClicked
+                                verticalPipeNode.isHidden = false
+                                
+                            } else {
+                                
+                                // We've clicked right or left a row, so show a horizontal pipe
+                                print("need to show horizontal pipe for position \(shapeNode.name!)")
+
+                                // ADAM: Do something similar to what is in the first branch of this IF statement above to show a horizontal pipe
                                 
                             }
                         }
@@ -197,6 +222,31 @@ class level1: SKScene  {
         }
         // Keep track of the prior click position
         lastMappedValueClicked = mappedVal
+    }
+    
+    // Obtain a reference to the vertical pipe node for this cell
+    func getVerticalPipeNode(from currentPipeNodeName : String) -> SKShapeNode? {
+        
+        // Start of target node name
+        var verticalNodeName = "ConnectBoxHeight-"
+
+        // Get the current cell number by parsing the current node name using "-" as the delimiter to chop things up on
+        let nodeComponents = currentPipeNodeName.components(separatedBy: "-")
+        
+        // There should always be a node name that has two components, with the second component being the number, but just in case,
+        // use an if-let to double-check
+        if let nodeNumber = nodeComponents.last {
+            verticalNodeName = verticalNodeName + nodeNumber
+            print("Vertical node name is: \(verticalNodeName)")
+        }
+        
+        // Return a reference to the target node, if needed
+        if let verticalNode = self.childNode(withName: verticalNodeName) as? SKShapeNode {
+            return verticalNode
+        } else {
+            return nil
+        }
+        
     }
 }
 
